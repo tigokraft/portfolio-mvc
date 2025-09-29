@@ -1,0 +1,337 @@
+/* Base Styles */
+.geist-font {
+  font-family: "Geist", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+body {
+  margin: 0;
+  max-width: 100%;
+  background-color: #121212; /* Dark grey, almost black for blending */
+  color: #e0e0e0; /* Light text for contrast */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: fit-content;
+  height: 3.5rem;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  padding: 0 1rem;
+  background: rgba(110, 110, 110, 0.28);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.9px);
+  -webkit-backdrop-filter: blur(9.9px);
+  border: 1px solid rgba(110, 110, 110, 0.11);
+  font-family: "Geist", sans-serif;
+}
+.navbar .logo {
+  width: 2rem;
+  height: 2rem;
+  background: #fcfcfc;
+  color: #1a1a1a;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: 1.1rem;
+  padding: 0 0.5rem;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+.navbar ul a {
+  color: white;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 0.3s ease;
+}
+.navbar ul a:hover {
+  color: #a0a0a0;
+}
+.navbar .cta {
+  background: white;
+  color: black;
+  border-radius: 12px;
+  padding: 0.4rem 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+.navbar .cta:hover {
+  background: #f0f0f0;
+}
+
+/* --- HERO SECTION FOR FIXED BACKGROUND AND FADE --- */
+.hero-container {
+  min-height: 100vh; /* Takes full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.hero-background {
+  background: url("/Assets/images/hero-portfolio.png") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed; /* KEY: Fixed background */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.scroll-fade-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* Blends the entire image softly with the dark background */
+  background: 
+    /* Linear gradient for vertical fade (transparent to dark) */ linear-gradient(
+      to bottom,
+      transparent 60%,
+      rgba(18, 18, 18, 0.9) 90%,
+      rgb(18, 18, 18) 100%
+    ),
+    /* Radial gradient for subtle glow/blur at the center */
+      radial-gradient(
+        ellipse at center,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(18, 18, 18, 0.5) 70%,
+        transparent 100%
+      );
+}
+.hero-cards-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+/* --- SCROLLING CONTENT SECTION --- */
+.scrolling-content-section {
+  background-color: #121212;
+  position: relative;
+  z-index: 10;
+  padding-top: 5rem;
+  /* Inner shadow for subtle glow/blend where it meets the hero */
+  box-shadow: inset 0 20px 50px rgba(255, 255, 255, 0.05),
+    inset 0 10px 100px #121212;
+}
+.main-content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  position: relative;
+  z-index: 5;
+}
+.hero-cards-wrapper .main-content-wrapper {
+  /* Positioning for the cards that sit on the hero */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* --- CARD STYLES --- */
+.card {
+  background-color: #242424; /* Darker background for cards */
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 250px;
+  overflow: hidden;
+  position: relative;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fcfcfc;
+}
+.card-subtitle {
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+.card .arrow-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #3a3a3a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.card-image-preview {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-image-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Hero Introduction Card (White/Light Card) */
+.hero-intro-card {
+  background: linear-gradient(135deg, #fefefe, #e0e0e0);
+  color: #1a1a1a;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  grid-column: span 2;
+  min-height: 350px;
+}
+.hero-intro-card h1 {
+  font-size: 2.8rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.hero-intro-card p {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #4a4a4a;
+}
+.hero-intro-card .social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.hero-intro-card .social-link {
+  background-color: #1a1a1a;
+  color: #fefefe;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: background-color 0.3s;
+}
+.hero-intro-card .contact-btn {
+  background-color: #1a1a1a;
+  color: #fefefe;
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+/* Image Card (Yellow Card) */
+.hero-image-card {
+  background-color: #facc15;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  grid-column: span 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 350px;
+  padding: 0;
+}
+.hero-image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+/* Example Project Card Overrides */
+.flop-app-card .card-image-preview {
+  background-color: #6a0dad;
+  height: 200px;
+}
+.lendscape-card .card-image-preview {
+  background-color: #1a1a1a;
+  padding: 1rem;
+}
+
+/* Placeholder for more content to make the page scroll */
+.more-content {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #121212;
+  z-index: 5;
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .hero-intro-card,
+  .hero-image-card {
+    grid-column: span 1;
+  }
+  .hero-intro-card h1 {
+    font-size: 2rem;
+  }
+}
