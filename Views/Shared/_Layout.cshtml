@@ -1,35 +1,37 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Tiago Oliveira</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/mvc_portfolio.styles.css" asp-append-version="true" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>@ViewData["Title"] - Tiago Oliveira</title>
+  <script type="importmap"></script>
+  <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+  <link rel="stylesheet" href="~/mvc_portfolio.styles.css" asp-append-version="true" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <header>
-      <nav class="navbar">
-        <div class="logo">ABO</div>
-        <ul>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#knowledge">Knowledge</a></li>
-          <li><a href="#about">About</a></li>
-        </ul>
-        <a href="#contact" class="cta">Contact</a>
-      </nav>
-    </header>
-    <div>
-        <main role="main">
-            @RenderBody()
-        </main>
-    </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#knowledge">Knowledge</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <a href="/contact" class="cta">Let's Talk</a>
+    </nav>
+  </header>
+  <div>
+    <main role="main">
+      @RenderBody()
+    </main>
+  </div>
+  <script src="~/lib/jquery/dist/jquery.min.js"></script>
+  <script src="~/js/site.js" asp-append-version="true"></script>
+  @await RenderSectionAsync("Scripts", required: false)
 </body>
+
 </html>

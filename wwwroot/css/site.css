@@ -14,11 +14,12 @@ html {
 body {
   margin: 0;
   max-width: 100%;
-  background-color: #121212; /* Dark grey, almost black for blending */
-  color: #e0e0e0; /* Light text for contrast */
+  background-color: #121212; /* Dark background for blending */
+  color: #e0e0e0;
+  font-family: "Geist", sans-serif; /* Applied globally */
 }
 
-/* Navbar */
+/* --- NAV BAR (RESTORED TO ORIGINAL) --- */
 .navbar {
   position: fixed;
   top: 1.5rem;
@@ -34,6 +35,7 @@ body {
   gap: 1.5rem;
 
   padding: 0 1rem;
+  /* Original styles restored: transparency, blur, shadow, border */
   background: rgba(110, 110, 110, 0.28);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -45,8 +47,8 @@ body {
 .navbar .logo {
   width: 2rem;
   height: 2rem;
-  background: #fcfcfc;
-  color: #1a1a1a;
+  background: white; /* Changed back to original white for simple logo */
+  color: black;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -54,7 +56,7 @@ body {
   overflow: hidden;
   font-weight: 500;
   font-size: 1.1rem;
-  padding: 0 0.5rem;
+  padding: 0; /* Removed padding for simple white box look */
 }
 .navbar ul {
   list-style: none;
@@ -89,21 +91,16 @@ body {
   background: #f0f0f0;
 }
 
-/* --- HERO SECTION FOR FIXED BACKGROUND AND FADE --- */
+/* --- HERO SECTION --- */
 .hero-container {
-  min-height: 100vh; /* Takes full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 100vh;
   position: relative;
   z-index: 1;
-  overflow: hidden;
 }
 .hero-background {
-  background: url("/Assets/images/hero-portfolio.png") no-repeat center center;
+  background: url("/Assets/images/hero-portfolio.png") no-repeat center center; /* YOUR IMAGE PATH */
   background-size: cover;
-  background-attachment: fixed; /* KEY: Fixed background */
+  background-attachment: fixed;
   position: absolute;
   top: 0;
   left: 0;
@@ -111,6 +108,7 @@ body {
   height: 100%;
   z-index: -1;
 }
+/* Vignette (radial-gradient) removed */
 .scroll-fade-overlay {
   position: absolute;
   top: 0;
@@ -118,28 +116,13 @@ body {
   width: 100%;
   height: 100%;
   z-index: 0;
-  /* Blends the entire image softly with the dark background */
-  background: 
-    /* Linear gradient for vertical fade (transparent to dark) */ linear-gradient(
-      to bottom,
-      transparent 60%,
-      rgba(18, 18, 18, 0.9) 90%,
-      rgb(18, 18, 18) 100%
-    ),
-    /* Radial gradient for subtle glow/blur at the center */
-      radial-gradient(
-        ellipse at center,
-        rgba(255, 255, 255, 0.05) 0%,
-        rgba(18, 18, 18, 0.5) 70%,
-        transparent 100%
-      );
-}
-.hero-cards-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
+  /* Only the linear gradient remains for the scroll-fade effect */
+  background: linear-gradient(
+    to bottom,
+    transparent 60%,
+    rgba(18, 18, 18, 0.9) 90%,
+    rgb(18, 18, 18) 100%
+  );
 }
 
 /* --- SCROLLING CONTENT SECTION --- */
@@ -148,35 +131,23 @@ body {
   position: relative;
   z-index: 10;
   padding-top: 5rem;
-  /* Inner shadow for subtle glow/blend where it meets the hero */
   box-shadow: inset 0 20px 50px rgba(255, 255, 255, 0.05),
     inset 0 10px 100px #121212;
 }
 .main-content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 2rem;
   position: relative;
   z-index: 5;
 }
-.hero-cards-wrapper .main-content-wrapper {
-  /* Positioning for the cards that sit on the hero */
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: auto;
-  padding: 2rem;
-  box-sizing: border-box;
-}
 
 /* --- CARD STYLES --- */
 .card {
-  background-color: #242424; /* Darker background for cards */
+  background-color: #242424;
   border-radius: 16px;
   padding: 1.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -186,47 +157,6 @@ body {
   min-height: 250px;
   overflow: hidden;
   position: relative;
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.card-title {
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: #fcfcfc;
-}
-.card-subtitle {
-  font-weight: 300;
-  font-size: 0.9rem;
-  color: #b0b0b0;
-}
-.card .arrow-icon {
-  width: 24px;
-  height: 24px;
-  background-color: #3a3a3a;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 0.8rem;
-}
-.card-image-preview {
-  margin-top: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.card-image-preview img {
-  max-width: 100%;
-  height: auto;
-  display: block;
 }
 
 /* Hero Introduction Card (White/Light Card) */
@@ -273,8 +203,8 @@ body {
 .hero-intro-card .contact-btn {
   background-color: #1a1a1a;
   color: #fefefe;
-  padding: 0.8rem 1.8rem;
-  border-radius: 10px;
+  padding: 0.4rem 1rem; /* Adjusted for smaller button based on original design */
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 500;
   transition: background-color 0.3s;
@@ -300,7 +230,48 @@ body {
   object-position: center bottom;
 }
 
-/* Example Project Card Overrides */
+/* Other Card Details */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fcfcfc;
+}
+.card-subtitle {
+  font-weight: 300;
+  font-size: 0.9rem;
+  color: #b0b0b0;
+}
+.card .arrow-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #3a3a3a;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.card-image-preview {
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-image-preview img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .flop-app-card .card-image-preview {
   background-color: #6a0dad;
   height: 200px;
@@ -309,8 +280,6 @@ body {
   background-color: #1a1a1a;
   padding: 1rem;
 }
-
-/* Placeholder for more content to make the page scroll */
 .more-content {
   min-height: 100vh;
   padding: 4rem 2rem;
@@ -321,7 +290,6 @@ body {
   z-index: 5;
   position: relative;
 }
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .main-content-wrapper {
