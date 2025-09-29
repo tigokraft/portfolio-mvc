@@ -1,36 +1,36 @@
-#!/bin/zsh
+#!/usr/bin/env zsh
+# watch-restart.sh – poor-man’s nodemon for ASP.NET MVC on macOS
+set -euo pipefail
 
-# Get the directory where this script is located (project root)
-SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-cd "$SCRIPT_DIR" || exit 1
+PROJECT_ROOT="${0:A:h}"
+DOTNET_RUN=(dotnet run --project "$PROJECT_ROOT")
+POLL_INTERVAL=0.5
 
-# Command to run your server
-DOTNET_CMD=(dotnet run)
+# ── build once (use -q instead of --quiet) ──
+echo "🔨  Building once…"
+dotnet build -q -nologo        #  ← changed here
 
-# Kill existing server on exit
-cleanup() {
-    echo "Stopping server..."
-    kill $SERVER_PID 2>/dev/null
-    exit 0
-}
-trap cleanup SIGINT SIGTERM
+# ── rest of the file stays the same ──
+typeset -F LAST_TS
+LAST_TS=$(find "$PROJECT_ROOT" -type f -print0 | xargs -0 stat -f %m | sort -n | tail -n1)
 
-# Start the server
-start_server() {
-    echo "Starting server..."
-    "${DOTNET_CMD[@]}" &
-    SERVER_PID=$!
-    echo "Server running with PID $SERVER_PID"
-}
+trap 'kill %1 2>/dev/null' EXIT INT TERM
 
-# Watch for file changes and restart when needed (macOS with fswatch)
-watch_and_restart() {
-    fswatch -o -r --exclude '\.git|bin|obj' . | while read; do
-        echo "Change detected, restarting server..."
-        kill $SERVER_PID 2>/dev/null
-        start_server
+while true; do
+    echo "🚀  Starting server…"
+    "${DOTNET_RUN[@]}" & SERVER_PID=$!
+
+    while kill -0 $SERVER_PID 2>/dev/null; do
+        sleep $POLL_INTERVAL
+        typeset -F NEW_TS
+        NEW_TS=$(find "$PROJECT_ROOT" -type f -print0 | xargs -0 stat -f %m | sort -n | tail -n1)
+        if (( $(echo "$NEW_TS > $LAST_TS" | bc -l) )); then
+            LAST_TS=$NEW_TS
+            echo "📝  File changed – restarting…"
+            break
+        fi
     done
-}
 
-start_server
-watch_and_restart
+    kill $SERVER_PID 2>/dev/null || true
+    wait   $SERVER_PID 2>/dev/null || true
+done

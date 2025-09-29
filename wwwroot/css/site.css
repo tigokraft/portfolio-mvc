@@ -267,6 +267,11 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.card .fancy-name {
+  font-family: "Courier New", Courier, monospace;
+}
+
 .card-image-preview img {
   max-width: 100%;
   height: auto;
