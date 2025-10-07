@@ -1,98 +1,45 @@
 ﻿@{
-  ViewData["Title"] = "Home Page";
+  ViewData["Title"] = "Tiago Oliveira";
 }
 
-<div class="hero-container">
-  <div class="hero-background"></div>
-  <div class="scroll-fade-overlay"></div>
-</div>
-
-<div class="scrolling-content-section">
-
-  <div class="main-content-wrapper" style="padding-top: 0; margin-top: -10vh;">
-
-    <div class="card hero-intro-card">
-      <div>
-        <h1>Hi, I'm <span class="fancy-name">Tiago Oliveira</span><br />a <span class="curse-arrow"></span> Developer
-        </h1>
-        <p>I care a lot about using design for positive impact, and enjoy creating user-centric, delightful, and human
-          experiences.</p>
-      </div>
-      <div>
-        <a href="/Contact" class="contact-btn">Contact me</a>
-        <div class="social-links">
-          <a href="#" class="social-link">in</a>
-          <a href="#" class="social-link">tw</a>
-          <a href="#" class="social-link">ig</a>
-        </div>
-      </div>
-    </div>
-
-    @* <div class="card hero-image-card">
-      <img src="https://via.placeholder.com/400x600/FACC15/000000?text=Abo" alt="Abo Profile">
-    </div> *@
+<section class="hero">
+  <div class="hero__text">
+    <h1 class="hero__title">
+      Developing<br>your <span class="hero__accent">frustrations</span>
+    </h1>
+    <p class="hero__subtitle">
+      I turn ideas into fast, type-safe, maintainable software.
+    </p>
+    <button class="hero__cta" onclick="scrollToSkills()">see my stack</button>
   </div>
+</section>
 
-  <div class="main-content-wrapper">
-    <h2 style="grid-column: 1 / -1; color: white; margin-bottom: 1.5rem; font-weight: 500;">My Latest Work</h2>
+<section id="knowledge" class="stack">
+  <h2 class="stack__title">I speak fluent</h2>
+  <div class="stack__grid">
+    @{
+      foreach (var s in new[] { "C", "C++", "C#", "Rust", "TypeScript", "JavaScript", "Flutter", "Python" })
+      {
+        <div class="stack__card">@s</div>
+      }
 
-    <div class="card flop-app-card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Flop App</div>
-          <div class="card-subtitle">Social media for poker players</div>
-        </div>
-        <a href="#" class="arrow-icon">&rarr;</a>
-      </div>
-      <div class="card-image-preview">
-        <img src="https://via.placeholder.com/200x400/6a0dad/FFFFFF?text=Flop+App+Preview" alt="Flop App Preview">
-      </div>
-    </div>
-
-    <div class="card lendscape-card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Lendscape</div>
-          <div class="card-subtitle">Lend and Borrow Dashboard</div>
-        </div>
-        <a href="#" class="arrow-icon">&rarr;</a>
-      </div>
-      <div class="card-image-preview">
-        <img src="https://via.placeholder.com/400x300/1a1a1a/FFFFFF?text=Lendscape+Dashboard" alt="Lendscape Dashboard">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">Tribe.so Admin Onboarding</div>
-          <div class="card-subtitle">Onboarding flow redesign</div>
-        </div>
-        <a href="#" class="arrow-icon">&rarr;</a>
-      </div>
-      <div class="card-image-preview">
-        <img src="https://via.placeholder.com/400x250/333/FFFFFF?text=Tribe.so" alt="Tribe.so Preview">
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">PromoX3 Dashboard</div>
-          <div class="card-subtitle">Promotional platform UI</div>
-        </div>
-        <a href="#" class="arrow-icon">&rarr;</a>
-      </div>
-      <div class="card-image-preview">
-        <img src="https://via.placeholder.com/400x250/555/FFFFFF?text=PromoX3" alt="PromoX3 Preview">
-      </div>
-    </div>
+    }
   </div>
+</section>
 
-  <div class="more-content">
-    <h3>Knowledge & About</h3>
-    <p>This section ensures the page has enough scroll depth to fully appreciate the smooth transition from the hero
-      image to the dark content area.</p>
-    <p style="margin-top: 50vh;">Let's Talk!</p>
+<section id="work" class="work">
+  <h2 class="work__title">Shipped work</h2>
+  <div class="work__grid">
+    <a class="project" href="https://fin-sync-web.vercel.app" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('/Assets/Images/finsync.jpg')"></div>
+      <h3 class="project__name">Finsync</h3>
+      <p class="project__desc">Full-stack finance dashboard – Next.js, C# micro-services, Postgres</p>
+    </a>
+
+    <a class="project" href="https://vexoshop.eu" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('/Assets/Images/vexo.jpg')"></div>
+      <h3 class="project__name">Vexo Shop</h3>
+      <p class="project__desc">High-performance e-commerce – ASP.NET Core, Redis, Docker</p>
+    </a>
   </div>
-</div>
+</section>

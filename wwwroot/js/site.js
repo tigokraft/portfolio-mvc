@@ -1,4 +1,8 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿// Smooth scroll for hero button
+document.querySelector(".hero__scroll").addEventListener("click", () => {
+  document.getElementById("knowledge").scrollIntoView({ behavior: "smooth" });
+});
 
-// Write your JavaScript code.
+function scrollToSkills() {
+  document.getElementById("knowledge").scrollIntoView({ behavior: "smooth" });
+}

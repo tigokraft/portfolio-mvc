@@ -15,6 +15,7 @@
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.MvcApplicationPartsAssemblyInfo.cache
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.RazorAssemblyInfo.cache
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.RazorAssemblyInfo.cs
+/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.sourcelink.json
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/rjimswa.dswa.cache.json
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/rjsmrazor.dswa.cache.json
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/rjsmcshtml.dswa.cache.json
@@ -22,7 +23,6 @@
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/scopedcss/bundle/mvc-portfolio.styles.css
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/scopedcss/projectbundle/mvc-portfolio.bundle.scp.css
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/0353c33m7q-61n19gt1b8.gz
-/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/5gkxmlphx4-xtxxf3hu2r.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/jvt29k82kq-bqjiyaj88i.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/5qbpmqkryy-c2jlpeoesf.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/rjnp1mldyb-erw9l3u2r3.gz
@@ -82,6 +82,8 @@
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/mt3x8ak7x4-muycvpuwrr.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/bei5qghdgb-87fc7y1x7t.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/2252kvasub-mlv21k5csn.gz
+/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/0jwkabi94f-p2lsinn8cx.gz
+/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/b7s8z0qazv-p2lsinn8cx.gz
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/staticwebassets.build.json
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/staticwebassets.build.json.cache
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/staticwebassets.development.json
@@ -91,7 +93,5 @@
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.pdb
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.genruntimeconfig.cache
 /Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/ref/mvc-portfolio.dll
-/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/0jwkabi94f-p2lsinn8cx.gz
-/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/b7s8z0qazv-p2lsinn8cx.gz
-/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/mvc-portfolio.sourcelink.json
-/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/xe2thckmhx-7s2wcjdkjg.gz
+/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/xe2thckmhx-cen654x46g.gz
+/Users/exxo/Documents/code/mvc-portfolio/obj/Debug/net9.0/compressed/5gkxmlphx4-fkw555ohxa.gz

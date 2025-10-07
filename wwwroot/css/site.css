@@ -1,310 +1,184 @@
-/* Base Styles */
-.geist-font {
-  font-family: "Geist", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 300;
-  font-style: normal;
+/* ----------  CSS VARIABLES  ---------- */
+:root {
+  --bg: #0d0d0d;
+  --text: #e5e5e5;
+  --accent: #00ff88;
+  --geist: "Geist", sans-serif;
+  --mono: "SF Mono", "Consolas", monospace;
+  --display: "Playfair Display", serif;
 }
+
+/* ----------  GLOBAL  ---------- */
 html {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  max-width: 100%;
+  scroll-behavior: smooth;
 }
 body {
-  margin: 0;
-  max-width: 100%;
-  background-color: #121212; /* Dark background for blending */
-  color: #e0e0e0;
-  font-family: "Geist", sans-serif; /* Applied globally */
+  font-family: var(--geist);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
 
-/* --- NAV BAR (RESTORED TO ORIGINAL) --- */
+/* ----------  GLASSMORPHIC NAVBAR  ---------- */
 .navbar {
   position: fixed;
-  top: 1.5rem;
-  left: 50%;
+  inset: 1rem auto auto 50%;
   transform: translateX(-50%);
-  width: fit-content;
-  height: 3.5rem;
-  z-index: 9999;
-
+  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-
-  padding: 0 1rem;
-  /* Original styles restored: transparency, blur, shadow, border */
-  background: rgba(110, 110, 110, 0.28);
+  gap: 2rem;
+  padding: 0.75rem 1.5rem;
+  /* glass */
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(9.9px);
-  -webkit-backdrop-filter: blur(9.9px);
-  border: 1px solid rgba(110, 110, 110, 0.11);
-  font-family: "Geist", sans-serif;
-}
-.navbar .logo {
-  width: 2rem;
-  height: 2rem;
-  background: white; /* Changed back to original white for simple logo */
-  color: black;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  font-weight: 500;
-  font-size: 1.1rem;
-  padding: 0; /* Removed padding for simple white box look */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .navbar ul {
   list-style: none;
   display: flex;
   gap: 1.5rem;
-  margin: 0;
-  padding: 0;
 }
-.navbar ul a {
-  color: white;
+.navbar a {
+  color: var(--text);
   text-decoration: none;
-  font-weight: 300;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  transition: color 0.3s ease;
-}
-.navbar ul a:hover {
-  color: #a0a0a0;
-}
-.navbar .cta {
-  background: white;
-  color: black;
-  border-radius: 12px;
-  padding: 0.4rem 1rem;
   font-weight: 500;
-  text-decoration: none;
-  transition: background 0.3s, color 0.3s;
+  transition: color 0.2s;
 }
-.navbar .cta:hover {
-  background: #f0f0f0;
+.navbar a:hover {
+  color: var(--accent);
+}
+.cta {
+  margin-left: auto;
+  background: var(--accent);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
-/* --- HERO SECTION --- */
-.hero-container {
+/* ----------  HERO  ---------- */
+.hero {
   height: 100vh;
-  position: relative;
-  z-index: 1;
-}
-.hero-background {
-  background: url("/Assets/images/hero-portfolio.png") no-repeat center center; /* YOUR IMAGE PATH */
-  background-size: cover;
-  background-attachment: fixed;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-/* Vignette (radial-gradient) removed */
-.scroll-fade-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  /* Only the linear gradient remains for the scroll-fade effect */
-  background: linear-gradient(
-    to bottom,
-    transparent 60%,
-    rgba(18, 18, 18, 0.9) 90%,
-    rgb(18, 18, 18) 100%
-  );
-}
-
-/* --- SCROLLING CONTENT SECTION --- */
-.scrolling-content-section {
-  background-color: #121212;
-  position: relative;
-  z-index: 10;
-  padding-top: 5rem;
-  box-shadow: inset 0 20px 50px rgba(255, 255, 255, 0.05),
-    inset 0 10px 100px #121212;
-}
-.main-content-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  background: url("/Assets/Images/hero-portfolio.png") center/cover no-repeat;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
-  position: relative;
-  z-index: 5;
+  place-items: center;
+  text-align: center;
+  padding: 0 1rem;
+}
+.hero__text {
+  color: #fff;
+}
+.hero__title {
+  font-family: var(--display);
+  font-size: clamp(3rem, 10vw, 7rem);
+  font-weight: 800;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+.hero__accent {
+  color: var(--accent);
+}
+.hero__subtitle {
+  margin: 1.5rem auto 2rem;
+  font-size: 1.25rem;
+  opacity: 0.85;
+}
+.hero__cta {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.hero__cta:hover {
+  transform: scale(1.05);
 }
 
-/* --- CARD STYLES --- */
-.card {
-  background-color: #242424;
+/* ----------  STACK  ---------- */
+.stack {
+  padding: 8rem 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+.stack__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.stack__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+}
+.stack__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem 0.5rem;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.25s;
+}
+.stack__card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+}
+
+/* ----------  WORK  ---------- */
+.work {
+  padding: 8rem 1rem;
+  max-width: 1000px;
+  margin: auto;
+}
+.work__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 600;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+.project {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 250px;
-  overflow: hidden;
-  position: relative;
+  transition: 0.25s;
 }
-
-/* Hero Introduction Card (White/Light Card) */
-.hero-intro-card {
-  background: linear-gradient(135deg, #fefefe, #e0e0e0);
-  color: #1a1a1a;
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-  grid-column: span 2;
-  min-height: 350px;
+.project:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
 }
-.hero-intro-card h1 {
-  font-size: 2.8rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-.hero-intro-card p {
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #4a4a4a;
-}
-.hero-intro-card .social-links {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.hero-intro-card .social-link {
-  background-color: #1a1a1a;
-  color: #fefefe;
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  font-size: 1.2rem;
-  transition: background-color 0.3s;
-}
-.hero-intro-card .contact-btn {
-  background-color: #1a1a1a;
-  color: #fefefe;
-  padding: 0.4rem 1rem; /* Adjusted for smaller button based on original design */
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-/* Image Card (Yellow Card) */
-.hero-image-card {
-  background-color: #facc15;
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-  grid-column: span 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  min-height: 350px;
-  padding: 0;
-}
-.hero-image-card img {
+.project__img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center bottom;
-}
-
-/* Other Card Details */
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-.card-title {
-  font-weight: 500;
-  font-size: 1.2rem;
-  color: #fcfcfc;
-}
-.card-subtitle {
-  font-weight: 300;
-  font-size: 0.9rem;
-  color: #b0b0b0;
-}
-.card .arrow-icon {
-  width: 24px;
-  height: 24px;
-  background-color: #3a3a3a;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 0.8rem;
-}
-.card-image-preview {
-  margin-top: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.card .fancy-name {
-  font-family: "Courier New", Courier, monospace;
-}
-
-.card-image-preview img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-.flop-app-card .card-image-preview {
-  background-color: #6a0dad;
   height: 200px;
+  background-size: cover;
+  background-position: center;
 }
-.lendscape-card .card-image-preview {
-  background-color: #1a1a1a;
-  padding: 1rem;
+.project__name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 1.2rem 1.2rem 0.2rem;
 }
-.more-content {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #121212;
-  z-index: 5;
-  position: relative;
-}
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .main-content-wrapper {
-    grid-template-columns: 1fr;
-  }
-  .hero-intro-card,
-  .hero-image-card {
-    grid-column: span 1;
-  }
-  .hero-intro-card h1 {
-    font-size: 2rem;
-  }
+.project__desc {
+  padding: 0 1.2rem 1.2rem;
+  opacity: 0.7;
+  font-size: 0.95rem;
 }
