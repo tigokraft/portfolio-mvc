@@ -14,15 +14,28 @@
   </div>
 </section>
 
-<section id="knowledge" class="stack">
-  <h2 class="stack__title">I speak fluent</h2>
-  <div class="stack__grid">
-    @{
-      foreach (var s in new[] { "C", "C++", "C#", "Rust", "TypeScript", "JavaScript", "Flutter", "Python" })
-      {
-        <div class="stack__card">@s</div>
-      }
+<section id="knowledge" class="skills">
+  <h2 class="skills__title">Knowledge stack</h2>
 
+  <div class="skills__galaxy">
+    @{
+      var skills = new[] {
+        new {name="C", icon="devicon-c-plain", color="#A8B9CC"},
+        new {name="C++", icon="devicon-cplusplus-plain", color="#00599C"},
+        new {name="C#", icon="devicon-csharp-plain", color="#239120"},
+        new {name="Rust", icon="devicon-rust-plain", color="#CE422B"},
+        new {name="TypeScript", icon="devicon-typescript-plain", color="#3178C6"},
+        new {name="JavaScript", icon="devicon-javascript-plain", color="#F7DF1E"},
+        new {name="Flutter", icon="devicon-flutter-plain", color="#02569B"},
+        new {name="Python", icon="devicon-python-plain", color="#3776AB"}
+        };
+      foreach (var s in skills)
+      {
+        <div class="skill-card" data-color="@s.color">
+          <i class="@s.icon colored"></i>
+          <span class="skill-card__name">@s.name</span>
+        </div>
+      }
     }
   </div>
 </section>
@@ -30,16 +43,20 @@
 <section id="work" class="work">
   <h2 class="work__title">Shipped work</h2>
   <div class="work__grid">
-    <a class="project" href="https://fin-sync-web.vercel.app" target="_blank" rel="noopener">
-      <div class="project__img" style="background-image:url('/Assets/Images/finsync.jpg')"></div>
-      <h3 class="project__name">Finsync</h3>
-      <p class="project__desc">Full-stack finance dashboard – Next.js, C# micro-services, Postgres</p>
-    </a>
+    <div class="project">
+      <iframe class="project__preview" src="https://fin-sync-web.vercel.app" loading="lazy"></iframe>
+      <div class="project__content">
+        <h3 class="project__name">Finsync</h3>
+        <p class="project__desc">Full-stack finance dashboard – Next.js, C# micro-services, Postgres</p>
+      </div>
+    </div>
 
-    <a class="project" href="https://vexoshop.eu" target="_blank" rel="noopener">
-      <div class="project__img" style="background-image:url('/Assets/Images/vexo.jpg')"></div>
-      <h3 class="project__name">Vexo Shop</h3>
-      <p class="project__desc">High-performance e-commerce – ASP.NET Core, Redis, Docker</p>
-    </a>
+    <div class="project">
+      <iframe class="project__preview" src="https://vexoshop.eu" loading="lazy"></iframe>
+      <div class="project__content">
+        <h3 class="project__name">Vexo Shop</h3>
+        <p class="project__desc">High-performance e-commerce – ASP.NET Core, Redis, Docker</p>
+      </div>
+    </div>
   </div>
 </section>

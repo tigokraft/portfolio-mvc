@@ -1,25 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj": {}
+    "H:\\code\\portfolio-mvc\\mvc-portfolio.csproj": {}
   },
   "projects": {
-    "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj": {
+    "H:\\code\\portfolio-mvc\\mvc-portfolio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj",
+        "projectUniqueName": "H:\\code\\portfolio-mvc\\mvc-portfolio.csproj",
         "projectName": "mvc-portfolio",
-        "projectPath": "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj",
-        "packagesPath": "/Users/exxo/.nuget/packages/",
-        "outputPath": "/Users/exxo/Documents/code/mvc-portfolio/obj/",
+        "projectPath": "H:\\code\\portfolio-mvc\\mvc-portfolio.csproj",
+        "packagesPath": "C:\\Users\\exxo\\.nuget\\packages\\",
+        "outputPath": "H:\\code\\portfolio-mvc\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/Users/exxo/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\exxo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -62,7 +69,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.305/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.305/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

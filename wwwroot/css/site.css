@@ -1,4 +1,44 @@
-/* ----------  CSS VARIABLES  ---------- */
+/* ----------  GLASSMORPHIC NAVBAR  ---------- */
+.navbar {
+  position: fixed;
+  inset: 1rem auto auto 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.75rem 1.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 2.2rem;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.navbar a:hover {
+  color: var(--accent);
+}
+.navbar .cta {
+  margin-left: auto;
+  background: white;
+  color: #000 !important;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
 :root {
   --bg: #0d0d0d;
   --text: #e5e5e5;
@@ -11,53 +51,15 @@
 /* ----------  GLOBAL  ---------- */
 html {
   scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
 }
 body {
   font-family: var(--geist);
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-}
-
-/* ----------  GLASSMORPHIC NAVBAR  ---------- */
-.navbar {
-  position: fixed;
-  inset: 1rem auto auto 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  padding: 0.75rem 1.5rem;
-  /* glass */
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-.navbar a {
-  color: var(--text);
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.2s;
-}
-.navbar a:hover {
-  color: var(--accent);
-}
-.cta {
-  margin-left: auto;
-  background: var(--accent);
-  color: #000;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  font-weight: 600;
+  overflow-x: hidden;
 }
 
 /* ----------  HERO  ---------- */
@@ -67,10 +69,28 @@ body {
   display: grid;
   place-items: center;
   text-align: center;
+  position: relative;
   padding: 0 1rem;
 }
+
+/* Create the "dripping blur" gradient transition */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.2) 0%, transparent 70%),
+              linear-gradient(to bottom, rgba(13,13,13,0) 0%, rgba(13,13,13,1) 100%);
+  filter: blur(60px);
+  z-index: 1;
+}
+
 .hero__text {
   color: #fff;
+  position: relative;
+  z-index: 2;
 }
 .hero__title {
   font-family: var(--display);
@@ -101,56 +121,75 @@ body {
   transform: scale(1.05);
 }
 
-/* ----------  STACK  ---------- */
-.stack {
-  padding: 8rem 1rem;
-  max-width: 900px;
-  margin: auto;
+/* ----------  KNOWLEDGE STACK  ---------- */
+.skills {
+  position: relative;
+  padding: 5rem 1rem 4rem; /* reduced padding to narrow gap */
+  background: #0d0d0d;
+  overflow: hidden;
 }
-.stack__title {
+.skills__title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 600;
+  text-align: center;
   margin-bottom: 3rem;
-  text-align: center;
 }
-.stack__grid {
+.skills__galaxy {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
-.stack__card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 1.5rem 0.5rem;
+.skill-card {
+  position: relative;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 2.5rem 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  transition: transform .4s, border-color .4s, box-shadow .4s;
+}
+.skill-card:hover {
+  transform: rotate(-2deg) scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 0 20px rgba(0,255,136,0.25);
+}
+.skill-card i {
+  font-size: 56px;
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: transform .3s;
+}
+.skill-card:hover i { transform: translateY(-5px); }
+.skill-card__name {
   font-family: var(--mono);
   font-size: 1.1rem;
   font-weight: 600;
-  transition: 0.25s;
-}
-.stack__card:hover {
-  border-color: var(--accent);
-  transform: translateY(-4px);
 }
 
 /* ----------  WORK  ---------- */
 .work {
-  padding: 8rem 1rem;
+  padding: 4rem 1rem 8rem;
   max-width: 1000px;
   margin: auto;
 }
 .work__title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 600;
-  margin-bottom: 3rem;
+  margin-bottom: 2.5rem;
   text-align: center;
 }
 .work__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   gap: 2rem;
 }
+
+/* Project cards with live preview */
 .project {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -166,19 +205,25 @@ body {
   border-color: var(--accent);
   transform: translateY(-6px);
 }
-.project__img {
+.project__preview {
   width: 100%;
-  height: 200px;
-  background-size: cover;
-  background-position: center;
+  height: 250px;
+  border: none;
+  filter: grayscale(0.3) blur(0.5px);
+  transition: filter 0.3s, transform 0.3s;
+}
+.project:hover .project__preview {
+  filter: none;
+  transform: scale(1.02);
+}
+.project__content {
+  padding: 1.2rem;
 }
 .project__name {
   font-size: 1.5rem;
   font-weight: 700;
-  padding: 1.2rem 1.2rem 0.2rem;
 }
 .project__desc {
-  padding: 0 1.2rem 1.2rem;
-  opacity: 0.7;
+  opacity: 0.75;
   font-size: 0.95rem;
 }
