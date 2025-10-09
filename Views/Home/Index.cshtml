@@ -7,7 +7,7 @@
       <li><a href="#resume">Resume</a></li>
       <li><a href="#blog">Blog</a></li>
     </ul>
-    <a href="/Home/Contact" class="cta">Let's Talk</a>
+    <a href="#contact" class="cta">Let's Talk</a>
   </nav>
 </header>
 
@@ -19,7 +19,7 @@
     <p class="hero__subtitle">
       I turn ideas into fast, type-safe, maintainable software.
     </p>
-    <button class="hero__cta" onclick="scrollToSkills()">see my stack</button>
+    <button class="hero__cta" onclick="scrollToSkills()">Interested?</button>
   </div>
 </section>
 
@@ -104,24 +104,8 @@
         <p class="project__desc">High-performance e-commerce – ASP.NET Core, Redis, Docker</p>
       </div>
     </a>
-    
-    <a class="project" href="#" target="_blank" rel="noopener">
-      <div class="project__img" style="background-image:url('https://placehold.co/600x400/252525/FFFFFF/png?text=Portfolio+App')"></div>
-      <div class="project__content">
-        <h3 class="project__name">Portfolio App</h3>
-        <p class="project__desc">Mobile portfolio application – Flutter, Firebase, Material Design</p>
-      </div>
-    </a>
-    
-    <a class="project" href="#" target="_blank" rel="noopener">
-      <div class="project__img" style="background-image:url('https://placehold.co/600x400/252525/FFFFFF/png?text=Data+Analyzer')"></div>
-      <div class="project__content">
-        <h3 class="project__name">Data Analyzer</h3>
-        <p class="project__desc">Data visualization tool – Python, Pandas, Matplotlib, Flask</p>
-      </div>
-    </a>
   </div>
-  
+
   <div class="work__cta">
     <a href="https://github.com/YOUR_GH" target="_blank" class="btn btn--outline">View More on GitHub</a>
   </div>
@@ -134,24 +118,24 @@
       <p>Download my complete resume to learn more about my experience, education, and skills.</p>
       <a href="/Assets/Files/resume.pdf" download class="btn btn--primary">Download CV</a>
     </div>
-    
+
     <div class="resume__timeline">
       <h3>Experience</h3>
       <div class="timeline">
         <div class="timeline__item">
-          <div class="timeline__date">2022 - Present</div>
+          <div class="timeline__date">2024</div>
           <div class="timeline__content">
-            <h4>Senior Software Engineer</h4>
-            <p>Tech Company Inc.</p>
-            <p>Leading development of high-performance applications using C# and Rust</p>
+            <h4>Software Developer(Intern)</h4>
+            <p>Zeiss</p>
+            <p>Developed Python automations and a local web broadcast service</p>
           </div>
         </div>
         <div class="timeline__item">
-          <div class="timeline__date">2019 - 2022</div>
+          <div class="timeline__date">2021 - 2023</div>
           <div class="timeline__content">
-            <h4>Software Developer</h4>
-            <p>Digital Solutions Ltd.</p>
-            <p>Developed and maintained web applications using .NET Core and TypeScript</p>
+            <h4>Software Developer & Server Administrator</h4>
+            <p>KA$HWAYZ</p>
+            <p>Developed Java applications and maintaned a webserver for said apps.</p>
           </div>
         </div>
       </div>
@@ -165,29 +149,54 @@
     <article class="blog-card">
       <div class="blog-card__date">May 15, 2023</div>
       <h3 class="blog-card__title">Understanding Rust Memory Management</h3>
-      <p class="blog-card__excerpt">An exploration of Rust's ownership model and how it ensures memory safety without a garbage collector.</p>
+      <p class="blog-card__excerpt">An exploration of Rust's ownership model and how it ensures memory safety without a
+        garbage collector.</p>
       <a href="#" class="blog-card__link">Read More</a>
     </article>
-    
+
     <article class="blog-card">
       <div class="blog-card__date">April 3, 2023</div>
       <h3 class="blog-card__title">Building High-Performance Web Apps with ASP.NET Core</h3>
-      <p class="blog-card__excerpt">Tips and techniques for optimizing ASP.NET Core applications for maximum performance.</p>
+      <p class="blog-card__excerpt">Tips and techniques for optimizing ASP.NET Core applications for maximum
+        performance.</p>
       <a href="#" class="blog-card__link">Read More</a>
     </article>
-    
+
     <article class="blog-card">
       <div class="blog-card__date">March 12, 2023</div>
       <h3 class="blog-card__title">The Future of Low-Level Programming</h3>
-      <p class="blog-card__excerpt">Exploring emerging trends in systems programming and what they mean for developers.</p>
+      <p class="blog-card__excerpt">Exploring emerging trends in systems programming and what they mean for developers.
+      </p>
       <a href="#" class="blog-card__link">Read More</a>
     </article>
   </div>
-  
+
   <div class="blog__cta">
     <a href="#" class="btn btn--outline">View All Articles</a>
   </div>
 </section>
+
+<section class="contact" id="contact" data-aos="fade-up">
+  <h2 class="contact__title">Let’s build something together</h2>
+  <p class="contact__subtitle">Whether it's a project, a collaboration, or just a chat — my inbox is open.</p>
+
+  <form id="contactForm" class="contact__form" method="post" action="/Home/SendMessage" novalidate>
+      <!-- Honeypot -->
+      <input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="contact__row">
+          <input type="text" name="Name" placeholder="Your name" required minlength="2">
+          <input type="email" name="Email" placeholder="Your email" required>
+      </div>
+
+      <textarea name="Message" placeholder="Your message…" rows="5" required minlength="10"></textarea>
+
+      <button type="submit" class="contact__btn" id="submitBtn">Send message</button>
+  </form>
+
+  <p id="formMsg" style="margin-top:1.2rem;font-size:.9rem;height:1.2rem"></p>
+</section>
+
 
 @section Scripts {
   <script>
@@ -195,5 +204,36 @@
       document.getElementById("knowledge").scrollIntoView({ behavior: "smooth" });
     }
     AOS.init({ duration: 1000, once: true });
+    (() => {
+        const form   = document.getElementById('contactForm');
+        const btn    = document.getElementById('submitBtn');
+        const msgBox = document.getElementById('formMsg');
+
+        form.addEventListener('submit', async e => {
+            e.preventDefault();
+            msgBox.textContent = '';
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+
+            const body = new FormData(form);
+
+            try {
+                const r = await fetch('/Home/SendMessage', {method:'POST', body});
+                const rMsg = await r.text();
+
+                if (!r.ok) throw new Error(rMsg || 'Server error');
+
+                form.reset();
+                msgBox.style.color = 'var(--accent)';
+                msgBox.textContent = 'Message sent — talk soon!';
+            } catch (err) {
+                msgBox.style.color = '#ff4d4d';
+                msgBox.textContent = err.message || 'Something went wrong. Try again?';
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Send message';
+            }
+        });
+    })();
   </script>
 }

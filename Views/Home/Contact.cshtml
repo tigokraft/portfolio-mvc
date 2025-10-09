@@ -1,17 +1,60 @@
 @{
-  ViewData["Title"] = "Contact";
+    ViewData["Title"] = "Contact";
 }
 
 <section class="contact">
   <h2 class="contact__title">Let’s build something together</h2>
   <p class="contact__subtitle">Whether it's a project, a collaboration, or just a chat — my inbox is open.</p>
 
-  <form class="contact__form" method="post" action="/Home/SendMessage">
-    <div class="contact__row">
-      <input type="text" name="Name" placeholder="Your name" required>
-      <input type="email" name="Email" placeholder="Your email" required>
-    </div>
-    <textarea name="Message" placeholder="Your message..." rows="5" required></textarea>
-    <button type="submit" class="contact__btn">Send message</button>
+  <form id="contactForm" class="contact__form" method="post" action="/Home/SendMessage" novalidate>
+      <!-- Honeypot -->
+      <input type="text" name="hp" style="display:none" tabindex="-1" autocomplete="off">
+
+      <div class="contact__row">
+          <input type="text" name="Name" placeholder="Your name" required minlength="2">
+          <input type="email" name="Email" placeholder="Your email" required>
+      </div>
+
+      <textarea name="Message" placeholder="Your message…" rows="5" required minlength="10"></textarea>
+
+      <button type="submit" class="contact__btn" id="submitBtn">Send message</button>
   </form>
+
+  <p id="formMsg" style="margin-top:1.2rem;font-size:.9rem;height:1.2rem"></p>
 </section>
+
+@section Scripts{
+<script>
+(() => {
+    const form   = document.getElementById('contactForm');
+    const btn    = document.getElementById('submitBtn');
+    const msgBox = document.getElementById('formMsg');
+
+    form.addEventListener('submit', async e => {
+        e.preventDefault();
+        msgBox.textContent = '';
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        const body = new FormData(form);
+
+        try {
+            const r = await fetch('/Home/SendMessage', {method:'POST', body});
+            const rMsg = await r.text();
+
+            if (!r.ok) throw new Error(rMsg || 'Server error');
+
+            form.reset();
+            msgBox.style.color = 'var(--accent)';
+            msgBox.textContent = 'Message sent — talk soon!';
+        } catch (err) {
+            msgBox.style.color = '#ff4d4d';
+            msgBox.textContent = err.message || 'Something went wrong. Try again?';
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Send message';
+        }
+    });
+})();
+</script>
+}

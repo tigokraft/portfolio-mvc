@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj": {}
+    "/Users/exxo/Downloads/portfolio-mvc/mvc-portfolio.csproj": {}
   },
   "projects": {
-    "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj": {
+    "/Users/exxo/Downloads/portfolio-mvc/mvc-portfolio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj",
+        "projectUniqueName": "/Users/exxo/Downloads/portfolio-mvc/mvc-portfolio.csproj",
         "projectName": "mvc-portfolio",
-        "projectPath": "/Users/exxo/Documents/code/mvc-portfolio/mvc-portfolio.csproj",
+        "projectPath": "/Users/exxo/Downloads/portfolio-mvc/mvc-portfolio.csproj",
         "packagesPath": "/Users/exxo/.nuget/packages/",
-        "outputPath": "/Users/exxo/Documents/code/mvc-portfolio/obj/",
+        "outputPath": "/Users/exxo/Downloads/portfolio-mvc/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/exxo/.nuget/NuGet/NuGet.Config"

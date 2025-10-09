@@ -51,7 +51,7 @@
 /* ----------  GLOBAL  ---------- */
 html {
   scroll-behavior: smooth;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
 }
 body {
@@ -112,6 +112,7 @@ body {
   opacity: 0.85;
 }
 .hero__cta {
+  margin-top: 4rem;
   background: var(--accent);
   color: #000;
   border: none;
@@ -120,6 +121,8 @@ body {
   font-weight: 600;
   cursor: pointer;
   transition: transform 0.2s;
+  font-family: var(--geist);
+  font-size: 1rem;
 }
 .hero__cta:hover {
   transform: scale(1.05);
@@ -357,7 +360,7 @@ body {
   position: relative;
 }
 .blog-card__link:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 1px;
@@ -405,59 +408,84 @@ body {
   transform: translateY(-2px);
 }
 
-/* ----------  CONTACT SECTION  ---------- */
+/* ----------  CONTACT (updated to match main site)  ---------- */
 .contact {
-  padding: 8rem 1rem;
-  max-width: 700px;
-  margin: auto;
-  text-align: center;
+  max-width: 920px;
+  margin: 3.5rem auto;
+  padding: 2.25rem;
+  background: rgba(255, 255, 255, 0.03); /* glass look */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(0, 255, 136, 0.03);
+  text-align: left;
   position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 255, 136, 0.05) 0%,
-    rgba(13, 13, 13, 1) 100%
-  );
-  border-radius: 24px;
-  box-shadow: 0 0 60px rgba(0, 255, 136, 0.05);
 }
+
+/* Title / subtitle */
 .contact__title {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
 }
 .contact__subtitle {
-  opacity: 0.7;
-  margin-bottom: 3rem;
+  opacity: 0.75;
+  margin-bottom: 1.25rem;
 }
+
+/* Form layout */
 .contact__form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.contact__row {
-  display: flex;
+  display: grid;
   gap: 1rem;
-  flex-wrap: wrap;
 }
+
+/* two-column row for name + email (keeps inputs from getting huge) */
+.contact__row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* labels for accessibility (small and subtle) */
+.contact__form label {
+  display: block;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-bottom: 0.35rem;
+  font-family: var(--mono);
+}
+
+/* inputs / textarea */
 .contact input,
 .contact textarea {
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
-  padding: 1rem;
-  color: white;
+  padding: 0.9rem 1rem;
+  color: var(--text);
   font-family: var(--geist);
-  resize: none;
+  font-size: 0.95rem;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  box-sizing: border-box;
 }
+
+/* better focus state — matches site accent */
 .contact input:focus,
 .contact textarea:focus {
   outline: none;
   border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.12);
 }
+
+/* textarea slightly taller but not enormous */
+.contact textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* submit */
 .contact__btn {
-  align-self: center;
+  justify-self: center; /* keep button centered */
   background: var(--accent);
   color: #000;
   border: none;
@@ -465,10 +493,22 @@ body {
   border-radius: 8px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.15s;
+  margin-top: 0.25rem;
 }
 .contact__btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
+}
+
+/* responsive breakpoint: stack the two columns */
+@media (max-width: 768px) {
+  .contact__row {
+    grid-template-columns: 1fr;
+  }
+  .contact {
+    padding: 1.25rem;
+    margin: 2rem 1rem;
+  }
 }
 
 /* ----------  ASYMMETRIC MOSAIC  ---------- */
@@ -504,7 +544,7 @@ body {
 
 /* bigger, richer text in about card */
 .card--about h3 {
-  font-size: 1.4rem;
+  font-size: 2rem;
   margin: 0 0 0.75rem;
   background: linear-gradient(135deg, var(--accent), #00cc6e);
   -webkit-background-clip: text;
@@ -521,7 +561,7 @@ body {
 /* other cards keep small type */
 .card--socials h3,
 .card--quote h3 {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   margin: 0 0 0.5rem;
   background: linear-gradient(135deg, var(--accent), #00cc6e);
   -webkit-background-clip: text;
@@ -529,7 +569,7 @@ body {
 }
 .card--socials p,
 .card--quote p {
-  font-size: 0.9rem;
+  font-size: 2rem;
   line-height: 1.4;
   opacity: 0.85;
   margin: 0;
