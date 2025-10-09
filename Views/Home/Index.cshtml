@@ -1,8 +1,17 @@
-﻿@{
-  ViewData["Title"] = "Tiago Oliveira";
-}
+﻿<header>
+  <nav class="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#knowledge">Knowledge</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#blog">Blog</a></li>
+    </ul>
+    <a href="/Home/Contact" class="cta">Let's Talk</a>
+  </nav>
+</header>
 
-<section class="hero">
+<section class="hero" data-aos="fade-up">
   <div class="hero__text">
     <h1 class="hero__title">
       Developing<br>your <span class="hero__accent">frustrations</span>
@@ -14,7 +23,44 @@
   </div>
 </section>
 
-<section id="knowledge" class="skills">
+<section id="about" class="mosaic" data-aos="fade-up">
+  <div class="mosaic__grid">
+    <!-- top row -->
+    <div class="card card--about">
+      <h3>About</h3>
+      <p>
+        Hello, I'm Tiago, a portuguese developer with a passion for low lever languages. I'm also interested in bikes,
+        cars, books and stoic philosophy
+      </p>
+    </div>
+
+    <div class="card card--socials">
+      <h3>Find Me</h3>
+      <nav class="socials">
+        <a href="https://instagram.com/YOUR_IG" target="_blank" aria-label="Instagram"><i
+            class="devicon-instagram-plain"></i></a>
+        <a href="https://twitter.com/YOUR_TW" target="_blank" aria-label="Twitter"><i
+            class="devicon-twitter-original"></i></a>
+        <a href="https://github.com/YOUR_GH" target="_blank" aria-label="GitHub"><i
+            class="devicon-github-original"></i></a>
+        <a href="https://figma.com/" target="_blank" aria-label="Figma"><i class="devicon-figma-plain"></i></a>
+        <a href="https://discordapp.com/users/YOUR_DISCORD" target="_blank" aria-label="Discord"><i
+            class="devicon-discord-plain"></i></a>
+        <a href="https://steamcommunity.com/id/YOUR_STEAM" target="_blank" aria-label="Steam"><i
+            class="devicon-steam-plain"></i></a>
+      </nav>
+    </div>
+
+    <!-- bottom row: spans full width -->
+    <div class="card card--quote">
+      <h3>Random Quote</h3>
+      <p>“We suffer more often in imagination than in reality.”</p>
+      <cite>— Seneca</cite>
+    </div>
+  </div>
+</section>
+
+<section id="knowledge" class="skills" data-aos="fade-up">
   <h2 class="skills__title">Knowledge stack</h2>
 
   <div class="skills__galaxy">
@@ -31,7 +77,7 @@
         };
       foreach (var s in skills)
       {
-        <div class="skill-card" data-color="@s.color">
+        <div class="skill-card" data-color="@s.color" data-aos="zoom-in">
           <i class="@s.icon colored"></i>
           <span class="skill-card__name">@s.name</span>
         </div>
@@ -40,23 +86,114 @@
   </div>
 </section>
 
-<section id="work" class="work">
+<section id="work" class="work" data-aos="fade-up">
   <h2 class="work__title">Shipped work</h2>
   <div class="work__grid">
-    <div class="project">
-      <iframe class="project__preview" src="https://fin-sync-web.vercel.app" loading="lazy"></iframe>
+    <a class="project" href="https://fin-sync-web.vercel.app" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('/Assets/Images/finsync.png')"></div>
       <div class="project__content">
         <h3 class="project__name">Finsync</h3>
         <p class="project__desc">Full-stack finance dashboard – Next.js, C# micro-services, Postgres</p>
       </div>
-    </div>
+    </a>
 
-    <div class="project">
-      <iframe class="project__preview" src="https://vexoshop.eu" loading="lazy"></iframe>
+    <a class="project" href="https://vexoshop.eu" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('/Assets/Images/vexo.png')"></div>
       <div class="project__content">
         <h3 class="project__name">Vexo Shop</h3>
         <p class="project__desc">High-performance e-commerce – ASP.NET Core, Redis, Docker</p>
       </div>
+    </a>
+    
+    <a class="project" href="#" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('https://placehold.co/600x400/252525/FFFFFF/png?text=Portfolio+App')"></div>
+      <div class="project__content">
+        <h3 class="project__name">Portfolio App</h3>
+        <p class="project__desc">Mobile portfolio application – Flutter, Firebase, Material Design</p>
+      </div>
+    </a>
+    
+    <a class="project" href="#" target="_blank" rel="noopener">
+      <div class="project__img" style="background-image:url('https://placehold.co/600x400/252525/FFFFFF/png?text=Data+Analyzer')"></div>
+      <div class="project__content">
+        <h3 class="project__name">Data Analyzer</h3>
+        <p class="project__desc">Data visualization tool – Python, Pandas, Matplotlib, Flask</p>
+      </div>
+    </a>
+  </div>
+  
+  <div class="work__cta">
+    <a href="https://github.com/YOUR_GH" target="_blank" class="btn btn--outline">View More on GitHub</a>
+  </div>
+</section>
+
+<section id="resume" class="resume" data-aos="fade-up">
+  <h2 class="resume__title">Resume</h2>
+  <div class="resume__content">
+    <div class="resume__download">
+      <p>Download my complete resume to learn more about my experience, education, and skills.</p>
+      <a href="/Assets/Files/resume.pdf" download class="btn btn--primary">Download CV</a>
+    </div>
+    
+    <div class="resume__timeline">
+      <h3>Experience</h3>
+      <div class="timeline">
+        <div class="timeline__item">
+          <div class="timeline__date">2022 - Present</div>
+          <div class="timeline__content">
+            <h4>Senior Software Engineer</h4>
+            <p>Tech Company Inc.</p>
+            <p>Leading development of high-performance applications using C# and Rust</p>
+          </div>
+        </div>
+        <div class="timeline__item">
+          <div class="timeline__date">2019 - 2022</div>
+          <div class="timeline__content">
+            <h4>Software Developer</h4>
+            <p>Digital Solutions Ltd.</p>
+            <p>Developed and maintained web applications using .NET Core and TypeScript</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<section id="blog" class="blog" data-aos="fade-up">
+  <h2 class="blog__title">Latest Articles</h2>
+  <div class="blog__grid">
+    <article class="blog-card">
+      <div class="blog-card__date">May 15, 2023</div>
+      <h3 class="blog-card__title">Understanding Rust Memory Management</h3>
+      <p class="blog-card__excerpt">An exploration of Rust's ownership model and how it ensures memory safety without a garbage collector.</p>
+      <a href="#" class="blog-card__link">Read More</a>
+    </article>
+    
+    <article class="blog-card">
+      <div class="blog-card__date">April 3, 2023</div>
+      <h3 class="blog-card__title">Building High-Performance Web Apps with ASP.NET Core</h3>
+      <p class="blog-card__excerpt">Tips and techniques for optimizing ASP.NET Core applications for maximum performance.</p>
+      <a href="#" class="blog-card__link">Read More</a>
+    </article>
+    
+    <article class="blog-card">
+      <div class="blog-card__date">March 12, 2023</div>
+      <h3 class="blog-card__title">The Future of Low-Level Programming</h3>
+      <p class="blog-card__excerpt">Exploring emerging trends in systems programming and what they mean for developers.</p>
+      <a href="#" class="blog-card__link">Read More</a>
+    </article>
+  </div>
+  
+  <div class="blog__cta">
+    <a href="#" class="btn btn--outline">View All Articles</a>
+  </div>
+</section>
+
+@section Scripts {
+  <script>
+    function scrollToSkills() {
+      document.getElementById("knowledge").scrollIntoView({ behavior: "smooth" });
+    }
+    AOS.init({ duration: 1000, once: true });
+  </script>
+}

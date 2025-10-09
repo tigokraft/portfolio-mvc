@@ -81,8 +81,12 @@ body {
   left: 0;
   width: 100%;
   height: 200px;
-  background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.2) 0%, transparent 70%),
-              linear-gradient(to bottom, rgba(13,13,13,0) 0%, rgba(13,13,13,1) 100%);
+  background: radial-gradient(
+      ellipse at center,
+      rgba(0, 255, 136, 0.2) 0%,
+      transparent 70%
+    ),
+    linear-gradient(to bottom, rgba(13, 13, 13, 0) 0%, rgba(13, 13, 13, 1) 100%);
   filter: blur(60px);
   z-index: 1;
 }
@@ -143,8 +147,8 @@ body {
 }
 .skill-card {
   position: relative;
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 2.5rem 1rem;
   text-align: center;
@@ -152,26 +156,28 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  transition: transform .4s, border-color .4s, box-shadow .4s;
+  transition: transform 0.4s, border-color 0.4s, box-shadow 0.4s;
 }
 .skill-card:hover {
   transform: rotate(-2deg) scale(1.05);
   border-color: var(--accent);
-  box-shadow: 0 0 20px rgba(0,255,136,0.25);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.25);
 }
 .skill-card i {
   font-size: 56px;
   filter: drop-shadow(0 0 8px currentColor);
-  transition: transform .3s;
+  transition: transform 0.3s;
 }
-.skill-card:hover i { transform: translateY(-5px); }
+.skill-card:hover i {
+  transform: translateY(-5px);
+}
 .skill-card__name {
   font-family: var(--mono);
   font-size: 1.1rem;
   font-weight: 600;
 }
 
-/* ----------  WORK  ---------- */
+/* ----------  WORK SECTION  ---------- */
 .work {
   padding: 4rem 1rem 8rem;
   max-width: 1000px;
@@ -226,4 +232,350 @@ body {
 .project__desc {
   opacity: 0.75;
   font-size: 0.95rem;
+}
+
+.project__img {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: top center;
+  filter: brightness(0.9);
+  transition: transform 0.3s, filter 0.3s;
+}
+.project:hover .project__img {
+  transform: scale(1.03);
+  filter: brightness(1);
+}
+.work__cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* ----------  RESUME SECTION  ---------- */
+.resume {
+  padding: 4rem 0;
+  background-color: #0f0f0f;
+}
+.resume__title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.resume__content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.resume__download {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.resume__download p {
+  margin-bottom: 1.5rem;
+}
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.timeline__item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+}
+.timeline__date {
+  font-family: var(--mono);
+  color: var(--accent);
+}
+.timeline__content h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+.timeline__content p {
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+/* ----------  BLOG SECTION  ---------- */
+.blog {
+  padding: 4rem 0;
+}
+.blog__title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.blog__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+.blog-card {
+  background: #1a1a1a;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+.blog-card__date {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+.blog-card__title {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.blog-card__excerpt {
+  color: #aaa;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+.blog-card__link {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  position: relative;
+}
+.blog-card__link:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--accent);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s;
+}
+.blog-card__link:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.blog__cta {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.btn--primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn--primary:hover {
+  background: #00cc6a;
+  transform: translateY(-2px);
+}
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+}
+.btn--outline:hover {
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ----------  CONTACT SECTION  ---------- */
+.contact {
+  padding: 8rem 1rem;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 255, 136, 0.05) 0%,
+    rgba(13, 13, 13, 1) 100%
+  );
+  border-radius: 24px;
+  box-shadow: 0 0 60px rgba(0, 255, 136, 0.05);
+}
+.contact__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.contact__subtitle {
+  opacity: 0.7;
+  margin-bottom: 3rem;
+}
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.contact__row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.contact input,
+.contact textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 1rem;
+  color: white;
+  font-family: var(--geist);
+  resize: none;
+}
+.contact input:focus,
+.contact textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.25);
+}
+.contact__btn {
+  align-self: center;
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.contact__btn:hover {
+  transform: scale(1.05);
+}
+
+/* ----------  ASYMMETRIC MOSAIC  ---------- */
+.mosaic {
+  padding: 3rem 1rem;
+  background: var(--bg);
+  overflow: hidden;
+}
+.mosaic__grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  max-width: 900px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 160px;
+  transition: transform 0.25s, border-color 0.25s;
+}
+.card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+/* bigger, richer text in about card */
+.card--about h3 {
+  font-size: 1.4rem;
+  margin: 0 0 0.75rem;
+  background: linear-gradient(135deg, var(--accent), #00cc6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card--about p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.87;
+  margin: 0;
+  text-align: justify;
+}
+
+/* other cards keep small type */
+.card--socials h3,
+.card--quote h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem;
+  background: linear-gradient(135deg, var(--accent), #00cc6e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.card--socials p,
+.card--quote p {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  opacity: 0.85;
+  margin: 0;
+}
+cite {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  align-self: flex-end;
+  margin-top: 0.5rem;
+}
+
+/* asymmetric spans */
+.card--about {
+  grid-column: span 7;
+}
+.card--socials {
+  grid-column: span 5;
+}
+.card--quote {
+  grid-column: span 12;
+} /* full width */
+
+/* social row */
+.socials {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+.socials a {
+  color: #fff;
+  font-size: 3rem;
+  transition: color 0.2s;
+  text-decoration: none;
+}
+.socials a:hover {
+  color: var(--accent);
+}
+
+/* responsive */
+@media (max-width: 768px) {
+  .mosaic__grid {
+    grid-template-columns: 1fr;
+  }
+  .card--about,
+  .card--socials,
+  .card--quote {
+    grid-column: span 1;
+  }
 }

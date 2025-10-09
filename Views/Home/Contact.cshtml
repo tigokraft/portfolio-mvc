@@ -1,0 +1,17 @@
+@{
+  ViewData["Title"] = "Contact";
+}
+
+<section class="contact">
+  <h2 class="contact__title">Let’s build something together</h2>
+  <p class="contact__subtitle">Whether it's a project, a collaboration, or just a chat — my inbox is open.</p>
+
+  <form class="contact__form" method="post" action="/Home/SendMessage">
+    <div class="contact__row">
+      <input type="text" name="Name" placeholder="Your name" required>
+      <input type="email" name="Email" placeholder="Your email" required>
+    </div>
+    <textarea name="Message" placeholder="Your message..." rows="5" required></textarea>
+    <button type="submit" class="contact__btn">Send message</button>
+  </form>
+</section>
